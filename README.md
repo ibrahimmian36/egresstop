@@ -3,7 +3,7 @@
 **Outbound TCP connection watchdog.** Set an allowlist. Anything that doesn't match shows up red in 200ms — with the PID, the comm, the destination, and the bytes.
 
 ```
-$ sudo yeet run https://github.com/YOUR-USERNAME/egresstop
+$ yeet run https://github.com/ibrahimmian36/egresstop
 ```
 
 The supply-chain compromises of the last two years — `tj-actions/changed-files`, `xz-utils`, the npm waves — all share a shape: a compromised process makes outbound connections to a destination nobody on the team would have authorized if asked. **egresstop is what asks.** Every TCP connection your box opens is matched against an allowlist; anything that doesn't match goes to the top of the dashboard in red.
@@ -59,13 +59,13 @@ A **header strip** with the live system rates, the percentage of bytes flowing t
 
 ```sh
 curl -fsSL https://yeet.cx | sh
-yeet run https://github.com/YOUR-USERNAME/egresstop
+yeet run https://github.com/ibrahimmian36/egresstop
 ```
 
 For a shareable screenshot, anonymize process names and remote addresses (everything identifying gets relabeled `proc-01`, `host-02`, …):
 
 ```sh
-yeet run https://github.com/YOUR-USERNAME/egresstop -- --anonymize
+yeet run https://github.com/ibrahimmian36/egresstop -- --anonymize
 ```
 
 Runs until `Ctrl-C`. Resize the terminal and the layout reflows; minimum 80×28.
@@ -138,7 +138,7 @@ The kernel side knows nothing about the allowlist — it just streams every TCP 
 ## Build it from a clone
 
 ```sh
-git clone https://github.com/YOUR-USERNAME/egresstop
+git clone https://github.com/ibrahimmian36/egresstop
 cd egresstop
 make                       # builds bin/egresstop.bpf.o
 sudo yeet run main.js      # run from source
