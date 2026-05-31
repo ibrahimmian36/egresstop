@@ -1,0 +1,5 @@
+bin/
+include/vmlinux.h
+*.o
+.DS_Store
+node_modules/
