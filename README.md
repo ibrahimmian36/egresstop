@@ -132,7 +132,7 @@ The kernel side knows nothing about the allowlist — it just streams every TCP 
 
 - Linux ≥ 5.5 (for `fentry` and `tp_btf`); Debian 13, Ubuntu 22.04+, Fedora 36+, recent Arch all fine
 - Kernel BTF: `CONFIG_DEBUG_INFO_BTF=y`, default on current Arch, Fedora, Ubuntu, and Debian 12+
-- `CAP_BPF` + `CAP_PERFMON` (typically root)
+- `CAP_BPF` + `CAP_PERFMON` — yeet handles this for you
 - `clang` and `bpftool` to build the BPF object — `yeet run` does this for you on first launch
 
 ## Build it from a clone
@@ -141,7 +141,7 @@ The kernel side knows nothing about the allowlist — it just streams every TCP 
 git clone https://github.com/ibrahimmian36/egresstop
 cd egresstop
 make                       # builds bin/egresstop.bpf.o
-sudo yeet run main.js      # run from source
+yeet run main.js           # run from source
 ```
 
 ## Trying it locally
@@ -150,7 +150,7 @@ The fastest demo: run egresstop, then have a separate shell hit an arbitrary ext
 
 ```sh
 # in one shell
-sudo yeet run main.js
+yeet run main.js
 
 # in another
 curl https://example.com/                  # → flagged, example.com isn't in defaults
